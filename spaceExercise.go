@@ -8,6 +8,7 @@ import (
   "encoding/json"
   "io/ioutil"
   "strings"
+  "strconv"
 )
 
 type Planets struct {
@@ -33,7 +34,8 @@ func parsePlanetData(filename string) Planets {
 
 func printIntroduction(planetdata Planets) Planets {
   fmt.Println("Welcome to the Solar System!")
-  fmt.Println("There are 9 planets to explore.")
+  var numPlanets string = strconv.Itoa(len(planetdata.Planets))
+  fmt.Println("There are " + numPlanets + " planets to explore.")
   fmt.Println("What is your name?")
   fmt.Println("Nice to meet you, " + takeInput() + ". Let's go for an adventure.")
 
