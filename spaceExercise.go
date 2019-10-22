@@ -45,12 +45,12 @@ func printIntroduction(planetdata Planets) Planets {
 func manualOrRandomNavigation(planetdata Planets) (string, Planets) {
 
   fmt.Println("Shall I randomly choose a planet for you to visit? (Y / N)")
-  var choice string;
+  var choice string
   for true {
     var temp string = takeInput()
     if temp == "Y" || temp == "N" {
-      choice = temp;
-      break;
+      choice = temp
+      break
     }
   }
 
@@ -81,7 +81,7 @@ func manualNavigation(planetdata Planets) {
     if exists {
       fmt.Println("Traveling to " + planet + "...")
       fmt.Println("Arrived at " + planet + ". " + planetdata.Planets[planetindex].Description)
-      break;
+      break
     } else {
       fmt.Println("That planet doesn't exist.")
     }
@@ -100,10 +100,10 @@ func takeInput() string {
 func findPlanet(planetdata Planets, planet string) (string, bool, int) {
   var exists bool
   var planetindex int
-  for i := 0; i < len(planetdata.Planets); i++ {
+  for i := 0 i < len(planetdata.Planets) i++ {
     if planetdata.Planets[i].Name == planet {
-      exists = true;
-      planetindex = i;
+      exists = true
+      planetindex = i
     }
   }
   return planet, exists, planetindex
