@@ -13,6 +13,7 @@ import (
 
 type Planets struct {
   Planets []Planet `json:"planets"`
+  Name string `json:"name"`
 }
 
 type Planet struct {
@@ -33,7 +34,7 @@ func parsePlanetData(filename string) Planets {
 }
 
 func printIntroduction(planetdata Planets) Planets {
-  fmt.Println("Welcome to the Solar System!")
+  fmt.Println("Welcome to the " + planetdata.Name + "!")
   var numPlanets string = strconv.Itoa(len(planetdata.Planets))
   fmt.Println("There are " + numPlanets + " planets to explore.")
   fmt.Println("What is your name?")
@@ -100,7 +101,7 @@ func takeInput() string {
 func findPlanet(planetdata Planets, planet string) (string, bool, int) {
   var exists bool
   var planetindex int
-  for i := 0 i < len(planetdata.Planets) i++ {
+  for i := 0; i < len(planetdata.Planets); i++ {
     if planetdata.Planets[i].Name == planet {
       exists = true
       planetindex = i
